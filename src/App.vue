@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    学生管理系统
+    <top-select></top-select>
+    <router-view></router-view>
   </div>
 </template>
 
-
 <script>
+import TopSelect from './components/TopSelect.vue'
 export default {
-  name:'App'
+  components: { TopSelect },
+  name:'App',
 }
 </script>
 
 <style scoped>
-  
+
 </style>
