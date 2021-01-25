@@ -2,17 +2,23 @@
 
 ## Project setup
 ```
-npm install
+npm install --save
 ```
 
-### Compiles and hot-reloads for development
+### dao层
 ```
-npm run serve
+对数据库的操作
 ```
 
-### Compiles and minifies for production
+### model层
 ```
-npm run build
+暂时写死的数据
+```
+
+### mysql层
+```
+config.js是mysql的配置文件
+connect.js封装了对数据库的异步操作
 ```
 
 ### Customize configuration
