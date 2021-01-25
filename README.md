@@ -11,5 +11,5 @@ npm run serve
 
 ## 后台项目地址
 ```
-https://github.com/RocketTurtle-wqt/student-management-system-backstage/tree/main
+https://github.com/RocketTurtle-wqt/student-management-system-backstage
 ```
