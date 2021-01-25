@@ -9,5 +9,7 @@ npm install --save
 npm run serve
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 后台项目地址
+```
+https://github.com/RocketTurtle-wqt/student-management-system-backstage/tree/main
+```
