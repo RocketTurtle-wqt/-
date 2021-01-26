@@ -19,7 +19,7 @@
 <script>
 export default {
   name:'TopSelect',
-    data() {
+  data() {
     return {
       activeIndex: '1',
       activeIndex2: '1'
