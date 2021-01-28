@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Student from '../views/Student.vue'
+import Register from '../views/Regist.vue'
+import StudentRegister from '../components/StudentRegister.vue'
+
 Vue.use(VueRouter)
 
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
@@ -22,6 +25,16 @@ const routes = [
   {
     path: '/student',
     component:Student
+  },
+  {
+    path: '/regist',
+    component: Register,
+    children: [
+      {
+        path: 'studentRegister',
+        component: StudentRegister
+      }
+    ]
   }
 ]
 

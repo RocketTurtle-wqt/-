@@ -11,6 +11,8 @@
         active-text-color="#ffd04b">
         <el-menu-item index="1" @click="login">登陆</el-menu-item>
         <el-menu-item index="2" @click="firstPage">注销</el-menu-item>
+        <el-menu-item index="3" @click="studentPage">学生信息</el-menu-item>
+        <el-menu-item index="4" @click="registStudent">登记</el-menu-item>
       </el-menu>
     </header>
   </div>
@@ -30,10 +32,16 @@ export default {
       console.log(key, keyPath);
     },
     login(){
-      this.$router.push('login')
+      this.$router.push('/login')
     },
     firstPage(){
       this.$router.push('/')
+    },
+    studentPage(){
+      this.$router.push('/student')
+    },
+    registStudent(){
+      this.$router.push('/regist')
     }
   }
 }
