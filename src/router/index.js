@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Student from '../views/Student.vue'
 import Register from '../views/Regist.vue'
 import StudentRegister from '../components/StudentRegister.vue'
+import Course from '../views/Course.vue'
 
 Vue.use(VueRouter)
 
@@ -24,7 +25,11 @@ const routes = [
   },
   {
     path: '/student',
-    component:Student
+    component: Student
+  },
+  {
+    path: '/student/course/:stuid',
+    component: Course
   },
   {
     path: '/regist',
