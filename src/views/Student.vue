@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import {url} from '../config/url.js'
+
 export default {
   name:'Student',
   data() {
@@ -58,7 +60,7 @@ export default {
       } 
   },
   mounted(){
-    this.$axios.get('http://localhost:3000/student')
+    this.$axios.get(url+'student')
               .then(res=>{
                 this.users=res.data
               }).catch(err=>{

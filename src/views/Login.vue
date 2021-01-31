@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import {url} from '../config/url.js'
+
 export default {
   name:'Login',
   data() {
@@ -20,7 +22,22 @@ export default {
   },
   methods:{
     check(){
-
+      this.$axios.get(url+'logincheck',{
+                    params:{
+                      username:this.username,
+                      password:this.password
+                    }
+                  })
+                  .then(res=>{
+                   if(res.data==='success'){
+                     this.$store.state.manager=true
+                     this.$router.push('/student')
+                   }else if(res.data==='managerIsNotExit'){
+                     alert('此管理员不存在')
+                   }else{
+                     alert('密码错误')
+                   }
+                 })
     }
   }
 }

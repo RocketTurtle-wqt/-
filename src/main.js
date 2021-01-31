@@ -3,6 +3,7 @@ import App from './App.vue'
 import axios from 'axios'
 import qs from 'qs'
 import router from './router/index.js'
+import store from './store/store.js'
 import { Input, Menu, MenuItem, Button } from 'element-ui'
 
 Vue.prototype.$axios = axios
@@ -15,6 +16,7 @@ Vue.use(Button)
 
 new Vue({
   el: '#app',
-  router:router,
+  router,
+  store,
   render: c => c(App)
 })

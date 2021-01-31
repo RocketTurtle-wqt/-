@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import {url} from '../config/url.js'
+
 export default {
   name: 'Course',
   data() {
@@ -28,9 +30,6 @@ export default {
     }
   },
   methods:{
-    studentClass(id){
-      this.$router.push(`/student/course/${id}`)
-    },
     pagePrev(){
       if(this.page>0){
         this.page--
@@ -48,7 +47,7 @@ export default {
       let shuju={
         id:this.courses.course[this.page*10+index].id
       }
-      this.$axios.post('http://localhost:3000/deleteCourse',this.$qs.stringify(shuju))
+      this.$axios.post(`${url}deletecourse`,this.$qs.stringify(shuju))
               .then(res=>{
                 this.courses=res.data
               }).catch(err=>{
@@ -68,9 +67,9 @@ export default {
   },
   mounted(){
     console.log(this.$route.params.stuid)
-        this.$axios.get('http://localhost:3000/course',{params:{id:this.$route.params.stuid}})
+        this.$axios.get(`${url}course`,{params:{id:this.$route.params.stuid}})
               .then(res=>{
-                this.courses=res.data
+                this.courses.course=res.data
               }).catch(err=>{
                 console.log(`${err} 请求失败`)
               })

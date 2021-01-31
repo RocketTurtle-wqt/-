@@ -9,10 +9,10 @@
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b">
-        <el-menu-item index="1" @click="login">登陆</el-menu-item>
-        <el-menu-item index="2" @click="firstPage">注销</el-menu-item>
-        <el-menu-item index="3" @click="studentPage">学生信息</el-menu-item>
-        <el-menu-item index="4" @click="registStudent">登记</el-menu-item>
+        <el-menu-item index="1" @click="login" :disabled="this.$store.state.manager">登陆</el-menu-item>
+        <el-menu-item index="2" @click="firstPage" :disabled="!this.$store.state.manager">注销</el-menu-item>
+        <el-menu-item index="3" @click="studentPage" :disabled="!this.$store.state.manager">学生信息</el-menu-item>
+        <el-menu-item index="4" @click="registStudent" :disabled="!this.$store.state.manager">登记</el-menu-item>
       </el-menu>
     </header>
   </div>
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       activeIndex: '1',
-      activeIndex2: '1'
+      activeIndex2: '1',
     };
   },
   methods: {
@@ -35,6 +35,7 @@ export default {
       this.$router.push('/login')
     },
     firstPage(){
+      this.$store.state.manager=!this.$store.state.manager
       this.$router.push('/')
     },
     studentPage(){
