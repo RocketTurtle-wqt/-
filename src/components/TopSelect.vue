@@ -2,17 +2,18 @@
   <div>
     <header>
       <el-menu
-        :default-active="activeIndex2"
+        :default-active="$route.path"
         class="el-menu-demo"
         mode="horizontal"
         @select="handleSelect"
         background-color="#545c64"
         text-color="#fff"
-        active-text-color="#ffd04b">
-        <el-menu-item index="1" @click="login" :disabled="this.$store.state.manager">登陆</el-menu-item>
-        <el-menu-item index="2" @click="firstPage" :disabled="!this.$store.state.manager">注销</el-menu-item>
-        <el-menu-item index="3" @click="studentPage" :disabled="!this.$store.state.manager">学生信息</el-menu-item>
-        <el-menu-item index="4" @click="registStudent" :disabled="!this.$store.state.manager">登记</el-menu-item>
+        active-text-color="#ffd04b"
+        router>
+        <el-menu-item index="/login" :disabled="this.$store.state.manager">登陆</el-menu-item>
+        <el-menu-item index="/" :disabled="!this.$store.state.manager">注销</el-menu-item>
+        <el-menu-item index="/student" :disabled="!this.$store.state.manager">学生信息</el-menu-item>
+        <el-menu-item :index="registRoute" :disabled="!this.$store.state.manager">登记</el-menu-item>
       </el-menu>
     </header>
   </div>
@@ -23,26 +24,23 @@ export default {
   name:'TopSelect',
   data() {
     return {
-      activeIndex: '1',
-      activeIndex2: '1',
+      registRoute:'/regist'
     };
+  },
+  computed: {
   },
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
-    },
-    login(){
-      this.$router.push('/login')
-    },
-    firstPage(){
-      this.$store.state.manager=!this.$store.state.manager
-      this.$router.push('/')
-    },
-    studentPage(){
-      this.$router.push('/student')
-    },
-    registStudent(){
-      this.$router.push('/regist')
+    }
+  },
+  watch:{
+    $route:{
+      handler(newVal, oldVal){
+        if(newVal.path==='/login'&&oldVal.path!=='/login') this.$store.state.manager=!this.$store.state.manager
+        if(newVal.path==='/regist/studentRegister'&&oldVal.path==='/regist') this.registRoute = newVal.path
+        else this.registRoute = '/regist'
+      }
     }
   }
 }
